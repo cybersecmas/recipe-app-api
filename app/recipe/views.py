@@ -40,7 +40,9 @@ class RecipeViewSet(viewsets.ModelViewSet):
 
 # Use the viewset for the CRUD because it's just simple
 # And a mixin allows you to add the listing functionality
-class TagViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
+class TagViewSet(mixins.UpdateModelMixin,
+                 mixins.ListModelMixin,
+                 viewsets.GenericViewSet):
     """Manage tags in the database."""
     serializer_class = serializers.TagSerializer
     queryset = Tag.objects.all()
