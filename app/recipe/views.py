@@ -40,7 +40,8 @@ class RecipeViewSet(viewsets.ModelViewSet):
 
 # Use the viewset for the CRUD because it's just simple
 # And a mixin allows you to add the listing functionality
-class TagViewSet(mixins.UpdateModelMixin,
+class TagViewSet(mixins.DestroyModelMixin,
+                 mixins.UpdateModelMixin,
                  mixins.ListModelMixin,
                  viewsets.GenericViewSet):
     """Manage tags in the database."""
