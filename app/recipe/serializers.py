@@ -36,7 +36,7 @@ class RecipeSerializer(serializers.ModelSerializer):
         for tag in tags:
             tag_obj, created = Tag.objects.get_or_create(
                 user=auth_user,
-                **tag,
+                **tag,  # take all the fields/values (futureproof)
             )
             recipe.tags.add(tag_obj)
 
